@@ -18,6 +18,7 @@
 package de.tudarmstadt.ukp.dkpro.core.ixa;
 
 import org.apache.uima.fit.descriptor.ResourceMetaData;
+import org.apache.uima.fit.descriptor.TypeCapability;
 
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import eu.openminted.share.annotations.api.Component;
@@ -31,14 +32,13 @@ import eu.openminted.share.annotations.api.constants.OperationType;
 @ResourceMetaData(name = "IXA POS-Tagger")
 @DocumentationResource("${docbase}/component-reference.html#engine-${shortClassName}")
 @TypeCapability(
-        inputs = { 
-            "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token",
-            "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence" }, 
-        outputs = { 
-            "de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS" })
+        inputs = {
+                "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token",
+                "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence"},
+        outputs = {
+                "de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS"})
 public class IxaPosTagger
-    extends OpenNlpPosTagger
-{
+        extends OpenNlpPosTagger {
     // The IXA POS tagger models make use of IXA classes. But they do so from within OpenNLP.
     // From the outside, it looks and works exactly like an OpenNLP POS tagger. So we just
     // derive from the OpenNlpPosTagger in side this module. This has the effect that through
