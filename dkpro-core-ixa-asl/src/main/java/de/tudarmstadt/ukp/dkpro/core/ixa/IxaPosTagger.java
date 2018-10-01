@@ -30,6 +30,12 @@ import eu.openminted.share.annotations.api.constants.OperationType;
 @Component(OperationType.PART_OF_SPEECH_TAGGER)
 @ResourceMetaData(name = "IXA POS-Tagger")
 @DocumentationResource("${docbase}/component-reference.html#engine-${shortClassName}")
+@TypeCapability(
+        inputs = { 
+            "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token",
+            "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence" }, 
+        outputs = { 
+            "de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS" })
 public class IxaPosTagger
     extends OpenNlpPosTagger
 {
